@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/static/js/main.b23cb84c.js",
-    "index.html": "/index.html",
-    "main.b23cb84c.js.map": "/static/js/main.b23cb84c.js.map"
+    "main.js": "/solaris/static/js/main.74eee78f.js",
+    "index.html": "/solaris/index.html",
+    "main.74eee78f.js.map": "/solaris/static/js/main.74eee78f.js.map"
   },
   "entrypoints": [
-    "static/js/main.b23cb84c.js"
+    "static/js/main.74eee78f.js"
   ]
 }
