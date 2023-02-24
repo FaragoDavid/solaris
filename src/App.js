@@ -74,7 +74,7 @@ function App() {
 
   return (
     <div>
-      <input onChange={({ target: { value } }) => setWord(value)} />
+      <input onChange={({ target: { value } }) => setWord(value.toLowerCase())} />
       <canvas ref={myCanvas} height={CANVAS_SIZE} width={CANVAS_SIZE} />
     </div>
   );
