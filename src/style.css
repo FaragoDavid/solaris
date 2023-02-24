@@ -1,0 +1,14 @@
+@viewport {
+    width: device-width;
+    zoom: 1.1;
+    min-zoom: 0.4;
+    max-zoom: 2;
+    user-zoom: fixed;
+}
+
+html,
+body {
+    height: 100vh;
+    padding: 0px !important;
+    margin: 0px !important;
+}
