@@ -23,24 +23,21 @@ function getImgSrc(letter) {
  * @param {string} word
  * @returns {Array<string>}
  */
-function tokenize(word) {
+function getHunLetters(word) {
   const DIGRAPHS = ['cs', 'dz', 'gy', 'ly', 'ny', 'sz', 'ty', 'zs'];
   const TRIGRAPH = 'dzs';
 
-  const letters = word.split('');
   const result = [];
 
-  for (let index = 0; index < letters.length; index++) {
-    const letter = letters[index];
-
-    if (index + 2 < letters.length && word.substring(index, index + 3) === TRIGRAPH) {
+  for (let index = 0; index < word.length; index++) {
+    if (word.substring(index, index + 3) === TRIGRAPH) {
       result.push(word.substring(index, index + 3));
       index += 2;
-    } else if (index + 1 < letters.length && DIGRAPHS.includes(word.substring(index, index + 2))) {
+    } else if (DIGRAPHS.includes(word.substring(index, index + 2))) {
       result.push(word.substring(index, index + 2));
       index++;
     } else {
-      result.push(letter);
+      result.push(word[index]);
     }
   }
 
@@ -56,13 +53,12 @@ function drawLetterImage(context, image, index, letters) {
   };
 }
 
-function drawLetter(context, letters) {
-  return (letter, index) => {
-    const imgSrc = `${process.env.PUBLIC_URL}/letters/${getImgSrc(letter)}.svg`;
+function drawWord(word, context) {
+  getHunLetters(word).forEach((letter, index, letters) => {
     const image = new Image();
-    image.src = imgSrc;
+    image.src = `${process.env.PUBLIC_URL}/letters/${getImgSrc(letter)}.svg`;
     image.onload = drawLetterImage(context, image, index, letters);
-  };
+  });
 }
 
 function App() {
@@ -73,8 +69,7 @@ function App() {
     const context = myCanvas.current.getContext('2d');
     context.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
-    const letters = tokenize(word);
-    letters.forEach(drawLetter(context, letters));
+    drawWord(word, context);
   }, [word]);
 
   return (
