@@ -6,7 +6,3 @@ A szoláris magyar egy alternatív írásformája a magyar nyelvnek, a mi a szó
 
 
 ## Használata
-
-Jelenleg csak alap szavakat képes generálni ékezetes és összetett betűket nem (Még:)).
-
-[Próbáld ki](https://frostforus.github.io/solaris/)
